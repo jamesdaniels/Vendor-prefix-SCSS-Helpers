@@ -1,0 +1,135 @@
+/* Going to keep a list of common css3 translation helpers here */
+
+/* 
+	transitions, used by isotope
+
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+
+	  -webkit-transition: none;
+       -moz-transition: none;
+         -o-transition: none;
+            transition: none;
+
+	 -webkit-transition-duration: 0s;
+      -moz-transition-duration: 0s;
+           transition-duration: 0s;
+
+*/
+
+@mixin transition-property($a, $b, $vendor) {
+	@if $vendor == vendor {
+		-webkit-transition-property: -webkit-#{$a}, $b;
+			 -moz-transition-property: -moz-#{$a}, $b;
+			   -o-transition-property: -o-#{$a}, $b;
+						transition-property: #{$a}, $b;
+	} @else {
+		-webkit-transition-property: $a, $b;
+			 -moz-transition-property: $a, $b;
+			   -o-transition-property: $a, $b;
+						transition-property: $a, $b;
+	}
+}
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+		 -moz-transition: $transition;
+			 -o-transition: $transition;
+					transition: $transition;
+}
+
+@mixin transition-duration($duration) {
+	-webkit-transition-duration: $duration;
+     -moz-transition-duration: $duration;
+          transition-duration: $duration;
+}
+
+/* 
+		gradients
+
+		background-image: -moz-linear-gradient(-90deg,
+			hsla( 0, 0%, 100%, 0.5 ) ,
+			hsla( 0, 0%, 100%, 0.0 )
+		);
+		background-image: -webkit-gradient(linear, 0 top, 0 bottom,
+			from( hsla( 0, 0%, 100%, 0.5 ) ),
+			to(   hsla( 0, 0%, 100%, 0.0 ) )
+		);
+
+*/
+
+@mixin linear-gradient-background($color1, $color2) {
+	background-image: -moz-linear-gradient(-90deg, $color1, $color2);
+	background-image: -webkit-gradient(linear, 0 top, 0 bottom, from($color1), to($color2));
+}
+
+/*
+
+		box shadows
+
+		-webkit-box-shadow: inset 0 2px 8px hsla( 0, 0%, 0%, 0.6 );
+       -moz-box-shadow: inset 0 2px 8px hsla( 0, 0%, 0%, 0.6 );
+         -o-box-shadow: inset 0 2px 8px hsla( 0, 0%, 0%, 0.6 );
+            box-shadow: inset 0 2px 8px hsla( 0, 0%, 0%, 0.6 );
+
+		-webkit-box-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+		   -moz-box-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+		        box-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+
+*/
+
+@mixin box-shadow($properties) {
+	-webkit-box-shadow: $properties;
+	-moz-box-shadow: $properties;
+	-o-box-shadow: $properties;
+	box-shadow: $properties;
+}
+
+/*
+		border radius
+
+	-webkit-border-radius: 17%;
+	-moz-border-radius: 17%;
+	border-radius: 17%;
+
+	border-radius	 -moz-border-radius
+	border-top-left-radius	-moz-border-radius-topleft
+	border-top-right-radius	-moz-border-radius-topright
+	border-bottom-right-radius	-moz-border-radius-bottomright
+	border-bottom-left-radius	-moz-border-radius-bottomleft
+	
+	would background-clip help on clipping the images?
+
+*/
+
+@mixin border-radius($properties) {
+	-webkit-border-radius: $properties;
+	-moz-border-radius: $properties;
+	border-radius: $properties;
+}
+
+@mixin border-top-left-radius($properties) {
+	-webkit-border-top-left-radius: $properties;
+	-moz-border-radius-topleft: $properties;
+	border-top-left-radius: $properties;
+}
+
+@mixin border-top-right-radius($properties) {
+	-webkit-border-top-right-radius: $properties;
+	-moz-border-radius-topright: $properties;
+	border-top-right-radius: $properties;
+}
+
+@mixin border-bottom-right-radius($properties) {
+	-webkit-border-bottom-right-radius: $properties;
+	-moz-border-radius-bottomright: $properties;
+	border-bottom-right-radius: $properties;
+}
+
+@mixin border-bottom-left-radius($properties) {
+	-webkit-border-bottom-left-radius: $properties;
+	-moz-border-radius-bottomleft: $properties;
+	border-bottom-left-radius: $properties;
+}
+
